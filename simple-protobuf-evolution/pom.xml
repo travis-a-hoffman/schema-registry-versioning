@@ -119,6 +119,38 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Maven Plugin to interact with the Confluent Schema Registry -->
+            <!-- Read more about this plugin here: https://docs.confluent.io/current/schema-registry/develop/maven-plugin.html -->
+            <!-- mvn schema-registry:register -->
+            <plugin>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-schema-registry-maven-plugin</artifactId>
+                <version>${io.confluent.version}</version>
+                <configuration>
+                    <normalizeSchemas>true</normalizeSchemas>
+                    <outputDirectory>target/downloaded-sources/schemas</outputDirectory>
+                    <subjectPatterns>
+                        <pattern>person</pattern>
+                    </subjectPatterns>
+                    <schemaRegistryUrls>
+                        <param>${schema.registry.host}</param>
+                    </schemaRegistryUrls>
+                    <userInfoConfig>${schema.registry.creds}</userInfoConfig>
+                    <subjects>
+                        <person>src/main/protobuf/person.proto</person>
+                    </subjects>
+                    <schemaTypes>
+                        <person>PROTOBUF</person>
+                    </schemaTypes>
+                    <compatibilityLevels>
+                        <person>BACKWARD_TRANSITIVE</person>
+                        <__GLOBAL>BACKWARD</__GLOBAL> <!-- Acts as the default -->
+                    </compatibilityLevels>
+                    <references></references>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
