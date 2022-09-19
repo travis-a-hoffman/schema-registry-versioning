@@ -21,7 +21,7 @@ public class PersonProducerTest {
       // Produce 1
       nToProduce = 1;
     } else if (args.length == 1) {
-      // --infinite
+      // --infinite or -∞
       nToProduce = -1;
     } else if (args.length == 2) {
       // -n 1234
