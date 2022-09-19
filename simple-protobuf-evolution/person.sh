@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-CLASS=io.firkin.schemaregistry.versioning.simple.protobuf.evolution.
-if [[ $1 == "-produce" ]]; then
-  CLASS+=PersonProducerTest
+PACKAGE=io.firkin.schemaregistry.versioning.simple.protobuf.evolution
+if [[ "$1" == "-produce" ]]; then
+  CLASS=PersonProducerTest
+  producing=true
   shift
-elif [ $1 == "-consume" ]; then
-  CLASS+=PersonConsumerTest
+elif [ "$1" == "-consume" ]; then
+  CLASS=PersonConsumerTest
+  consuming=true
   shift
 else
   echo "Please specify either -produce or -consume"
@@ -13,13 +15,67 @@ else
 fi
 
 source .firkin_configs
-# .firkin_configs needs to contain the following:
+# .firkin_configs expected to contain the following:
 # export FIRKIN_KAFKA_BOOTSTRAP_URL=pkc-*****.us-east4.gcp.confluent.cloud:9092
 # export FIRKIN_KAFKA_BOOTSTRAP_USERNAME=UTAB7**********
 # export FIRKIN_KAFKA_BOOTSTRAP_PASSWORD=AUoVR***********************************************************
 # export FIRKIN_SCHEMA_REGISTRY_URL=https://psrc-*****.us-central1.gcp.confluent.cloud
 # export FIRKIN_SCHEMA_REGISTRY_USERNAME=NH73G***********
 # export FIRKIN_SCHEMA_REGISTRY_PASSWORD=PspMy***********************************************************
+
+if [[ "" == "$FIRKIN_KAFKA_BOOTSTRAP_URL" ]]; then
+  echo "FIRKIN_KAFKA_BOOTSTRAP_URL not set."
+  missing_bootstrap_env=true
+fi
+if [[ "" == "$FIRKIN_KAFKA_BOOTSTRAP_USERNAME" ]]; then
+  echo "FIRKIN_KAFKA_BOOTSTRAP_USERNAME not set."
+  missing_bootstrap_env=true
+fi
+if [[ "" == "$FIRKIN_KAFKA_BOOTSTRAP_PASSWORD" ]]; then
+  echo "FIRKIN_KAFKA_BOOTSTRAP_PASSWORD not set."
+  missing_bootstrap_env=true
+fi
+
+#missing_schema_registry_env=false
+if [[ "" == "$FIRKIN_SCHEMA_REGISTRY_URL" ]]; then
+  echo "FIRKIN_SCHEMA_REGISTRY_URL not set."
+  missing_schema_registry_env=true
+fi
+if [[ "" == "$FIRKIN_SCHEMA_REGISTRY_USERNAME" ]]; then
+  echo "FIRKIN_SCHEMA_REGISTRY_USERNAME not set."
+  missing_schema_registry_env=true
+fi
+if [[ "" == "$FIRKIN_SCHEMA_REGISTRY_PASSWORD" ]]; then
+  echo "FIRKIN_SCHEMA_REGISTRY_PASSWORD not set."
+  missing_schema_registry_env=true
+fi
+
+if [[ $missing_schema_registry_env == true || $missing_bootstrap_env == true ]]; then
+  exit 1;
+fi
+
+FIRKIN_TOPIC=person_001
+
+if [[ "$producing" == true ]]; then
+  if [[ $1 == "-n" ]]; then
+    JARGS+="-n $2"
+    shift 2;
+  else
+    JARGS+="-∞"
+  fi
+elif [[ "$consuming" == true ]]; then
+  echo "Consuming! -∞"
+  if [[ $1 == "-n" ]]; then
+    JARGS+="-n $2"
+    shift 2;
+  else
+    JARGS+="-∞"
+  fi
+else
+  echo "Error not consuming or producing!!"
+  exit 1
+fi
+
 
 FIRKIN_CLASSPATH=target/classes
 FIRKIN_CLASSPATH+=:~/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar
@@ -52,4 +108,5 @@ FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/protobuf/protobuf-java/3.21.1/pro
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/protobuf/protobuf-java-util/3.19.4/protobuf-java-3.19.4.jar
 
 #echo "  FIRKIN_CLASSPATH=$FIRKIN_CLASSPATH"
-java -cp $FIRKIN_CLASSPATH $CLASS -n 10
+echo "java -cp \$FIRKIN_CLASSPATH $CLASS $JARGS"
+java -cp $FIRKIN_CLASSPATH $PACKAGE.$CLASS $JARGS
