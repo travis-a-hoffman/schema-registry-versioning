@@ -17,19 +17,13 @@
         <com.google.protobuf.version>3.21.1</com.google.protobuf.version>
         <io.confluent.version>7.2.1</io.confluent.version>
 
-        <!-- account: thoffman+svcs-west env: thoffman-block-1
-        <schema.registry.host>https://psrc-4yovk.us-east-2.aws.confluent.cloud</schema.registry.host>
-        <schema.registry.creds>6VXXVHAUZS6BF3XG:O+MVfLp6jtkm6c/cjpVxePI2EkYAk0zWJ6nRzvMhyTDNZRwbhBBUuWtvnvoUpS+m</schema.registry.creds>
+        <!-- account: thoffman+svcs-west env: thoffman-block-1 (Example Values)
+        <schema.registry.host>https://psrc-12345.us-east-2.aws.confluent.cloud</schema.registry.host>
+        <schema.registry.creds>6VXXV***********:O+MVfL**********************************************************</schema.registry.creds>
           -->
 
-        <!-- account: thoffman+svcs-west env: thoffman-block-2
-        <schema.registry.host>https://psrc-4yovk.us-east-2.aws.confluent.cloud</schema.registry.host>
-        <schema.registry.creds>ZD7MCAKLY62C6ZR5:Z1/OR48yBiF4QXbY01OyI+Pd3Ua8U52007LLbLxYe/5JoamMJ9D0RNC4YoU0DGXp</schema.registry.creds>
-          -->
-
-        <!-- account: thoffman+svcs-west env: thoffman-block-3 -->
-        <schema.registry.host>https://psrc-q25x7.us-east-2.aws.confluent.cloud</schema.registry.host>
-        <schema.registry.creds>RVZ45TPW5FS3AI2F:2xf0CzUOGXnRmwkyi+CFB8OWxUDK1XIbxgaQdCZkNJuzbuxMo003B8K4TxRVGLDT</schema.registry.creds>
+        <schema.registry.host>${env.FIRKIN_SCHEMA_REGISTRY_URL}</schema.registry.host>
+        <schema.registry.creds>${env.FIRKIN_SCHEMA_REGISTRY_USERNAME}:${env.FIRKIN_SCHEMA_REGISTRY_PASSWORD}</schema.registry.creds>
     </properties>
 
     <dependencies>
