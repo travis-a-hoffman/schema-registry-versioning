@@ -122,7 +122,7 @@
                 <artifactId>kafka-schema-registry-maven-plugin</artifactId>
                 <version>${io.confluent.version}</version>
                 <configuration>
-                    <normalizeSchemas>true</normalizeSchemas>
+                    <normalizeSchemas>false</normalizeSchemas>
                     <outputDirectory>target/downloaded-sources/schemas</outputDirectory>
                     <subjectPatterns>
                         <pattern>person</pattern>
