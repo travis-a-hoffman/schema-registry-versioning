@@ -54,8 +54,6 @@ if [[ $missing_schema_registry_env == true || $missing_bootstrap_env == true ]];
   exit 1;
 fi
 
-FIRKIN_TOPIC=person_001
-
 if [[ "$producing" == true ]]; then
   if [[ $1 == "-n" ]]; then
     JARGS+="-n $2"
@@ -64,7 +62,6 @@ if [[ "$producing" == true ]]; then
     JARGS+="-∞"
   fi
 elif [[ "$consuming" == true ]]; then
-  echo "Consuming! -∞"
   if [[ $1 == "-n" ]]; then
     JARGS+="-n $2"
     shift 2;
@@ -88,6 +85,15 @@ FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/common-utils/$CFLT/common-utils
 FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-protobuf-provider/$CFLT/kafka-protobuf-provider-$CFLT.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-protobuf-serializer/$CFLT/kafka-protobuf-serializer-$CFLT.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-protobuf-types/$CFLT/kafka-protobuf-types-$CFLT.jar
+
+WIRE=4.3.0
+# Needs to be before the wire schema-jvm jars
+FIRKIN_CLASSPATH+=:~/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.0/kotlin-stdlib-1.6.0.jar
+FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-schema/$WIRE/wire-schema-$WIRE.jar
+FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-schema-jvm/$WIRE/wire-schema-jvm-$WIRE.jar
+FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-runtime/$WIRE/wire-runtime-$WIRE.jar
+FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-runtime-jvm/$WIRE/wire-runtime-jvm-$WIRE.jar
+
 FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-schema-registry-client/$CFLT/kafka-schema-registry-client-$CFLT.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-schema-serializer/$CFLT/kafka-schema-serializer-$CFLT.jar
 
@@ -102,7 +108,6 @@ FIRKIN_CLASSPATH+=:~/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy
 
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/guava/guava/30.1.1-jre/guava-30.1.1-jre.jar
-FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.5.1/proto-google-common-protos-2.5.1.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.5.1/proto-google-common-protos-2.5.1.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/protobuf/protobuf-java/3.21.1/protobuf-java-3.21.1.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/google/protobuf/protobuf-java-util/3.19.4/protobuf-java-3.19.4.jar
