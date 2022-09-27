@@ -62,6 +62,16 @@ public final class PersonOuterClass {
      */
     com.google.protobuf.ByteString
         getDateOfDeathBytes();
+
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    java.lang.String getHomePlanet();
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getHomePlanetBytes();
   }
   /**
    * Protobuf type {@code io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Person}
@@ -80,6 +90,7 @@ public final class PersonOuterClass {
       familyName_ = "";
       dateOfBirth_ = "";
       dateOfDeath_ = "";
+      homePlanet_ = "";
     }
 
     @java.lang.Override
@@ -134,6 +145,12 @@ public final class PersonOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               dateOfDeath_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              homePlanet_ = s;
               break;
             }
           }
@@ -304,6 +321,40 @@ public final class PersonOuterClass {
       }
     }
 
+    public static final int HOME_PLANET_FIELD_NUMBER = 6;
+    private volatile java.lang.Object homePlanet_;
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    public java.lang.String getHomePlanet() {
+      java.lang.Object ref = homePlanet_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        homePlanet_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHomePlanetBytes() {
+      java.lang.Object ref = homePlanet_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        homePlanet_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -331,6 +382,9 @@ public final class PersonOuterClass {
       if (!getDateOfDeathBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dateOfDeath_);
       }
+      if (!getHomePlanetBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, homePlanet_);
+      }
     }
 
     public int getSerializedSize() {
@@ -353,6 +407,9 @@ public final class PersonOuterClass {
       }
       if (!getDateOfDeathBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dateOfDeath_);
+      }
+      if (!getHomePlanetBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, homePlanet_);
       }
       memoizedSize = size;
       return size;
@@ -380,6 +437,8 @@ public final class PersonOuterClass {
           .equals(other.getDateOfBirth());
       result = result && getDateOfDeath()
           .equals(other.getDateOfDeath());
+      result = result && getHomePlanet()
+          .equals(other.getHomePlanet());
       return result;
     }
 
@@ -401,6 +460,8 @@ public final class PersonOuterClass {
       hash = (53 * hash) + getDateOfBirth().hashCode();
       hash = (37 * hash) + DATE_OF_DEATH_FIELD_NUMBER;
       hash = (53 * hash) + getDateOfDeath().hashCode();
+      hash = (37 * hash) + HOME_PLANET_FIELD_NUMBER;
+      hash = (53 * hash) + getHomePlanet().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -529,6 +590,8 @@ public final class PersonOuterClass {
 
         dateOfDeath_ = "";
 
+        homePlanet_ = "";
+
         return this;
       }
 
@@ -556,6 +619,7 @@ public final class PersonOuterClass {
         result.familyName_ = familyName_;
         result.dateOfBirth_ = dateOfBirth_;
         result.dateOfDeath_ = dateOfDeath_;
+        result.homePlanet_ = homePlanet_;
         onBuilt();
         return result;
       }
@@ -614,6 +678,10 @@ public final class PersonOuterClass {
         }
         if (!other.getDateOfDeath().isEmpty()) {
           dateOfDeath_ = other.dateOfDeath_;
+          onChanged();
+        }
+        if (!other.getHomePlanet().isEmpty()) {
+          homePlanet_ = other.homePlanet_;
           onChanged();
         }
         onChanged();
@@ -943,6 +1011,75 @@ public final class PersonOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object homePlanet_ = "";
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public java.lang.String getHomePlanet() {
+        java.lang.Object ref = homePlanet_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          homePlanet_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHomePlanetBytes() {
+        java.lang.Object ref = homePlanet_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          homePlanet_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public Builder setHomePlanet(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        homePlanet_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public Builder clearHomePlanet() {
+        
+        homePlanet_ = getDefaultInstance().getHomePlanet();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public Builder setHomePlanetBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        homePlanet_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -1007,10 +1144,11 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\014person.proto\022=io.firkin.schemaregistry" +
-      ".versioning.simple.protobuf.evolution\"k\n" +
-      "\006Person\022\n\n\002id\030\001 \001(\003\022\022\n\ngiven_name\030\002 \001(\t\022" +
-      "\023\n\013family_name\030\003 \001(\t\022\025\n\rdate_of_birth\030\004 " +
-      "\001(\t\022\025\n\rdate_of_death\030\005 \001(\tb\006proto3"
+      ".versioning.simple.protobuf.evolution\"\200\001" +
+      "\n\006Person\022\n\n\002id\030\001 \001(\003\022\022\n\ngiven_name\030\002 \001(\t" +
+      "\022\023\n\013family_name\030\003 \001(\t\022\025\n\rdate_of_birth\030\004" +
+      " \001(\t\022\025\n\rdate_of_death\030\005 \001(\t\022\023\n\013home_plan" +
+      "et\030\006 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1029,7 +1167,7 @@ public final class PersonOuterClass {
     internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Person_descriptor,
-        new java.lang.String[] { "Id", "GivenName", "FamilyName", "DateOfBirth", "DateOfDeath", });
+        new java.lang.String[] { "Id", "GivenName", "FamilyName", "DateOfBirth", "DateOfDeath", "HomePlanet", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

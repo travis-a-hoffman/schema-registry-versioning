@@ -7,4 +7,5 @@ message Person {
   string family_name = 3;
   string date_of_birth = 4;
   string date_of_death = 5;
+  string home_planet = 6;
 }

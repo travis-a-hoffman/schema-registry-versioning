@@ -82,6 +82,7 @@ public class PersonProducerTest {
         builder.setDateOfDeath("2019-12-16");
       }
 
+      builder.setHomePlanet(planet_names.get(r.nextInt(planet_names.size())));
       return builder.build();
     }
 
@@ -98,6 +99,12 @@ public class PersonProducerTest {
         "Nunb", "Frik", "Rebo", "Snoodles", "Nest", "Crumb", "Warrick", "Dameron", "Jinn", "Fortuna", "Kenobi", "Ren",
         "Imwe", "Palpatine"
     );
+
+    private List<String> planet_names = List.of(
+        "Alderaan", "Bespin", "Corellia", "Coruscant", "Dagobah", "Geonosis", "Hoth", "Jedha", "Kashyyyk", "Kuat",
+        "Malastare", "Mandalore", "Mon Cala", "Mustafar", "Naboo", "Ord Mandell", "Sullust", "Tatooine", "Utapau"
+    );
+
   }
 
 }
