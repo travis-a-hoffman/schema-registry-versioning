@@ -1,0 +1,7 @@
+syntax = "proto3";
+package io.firkin.schemaregistry.versioning.simple.protobuf.evolution;
+
+message Planet {
+  int64 id = 1;
+  string name = 2;
+}

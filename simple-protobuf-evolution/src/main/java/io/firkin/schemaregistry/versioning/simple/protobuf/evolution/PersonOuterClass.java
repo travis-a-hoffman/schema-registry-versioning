@@ -62,6 +62,29 @@ public final class PersonOuterClass {
      */
     com.google.protobuf.ByteString
         getDateOfDeathBytes();
+
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    java.lang.String getHomePlanet();
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getHomePlanetBytes();
+
+    /**
+     * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+     */
+    boolean hasPlanet();
+    /**
+     * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+     */
+    io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet getPlanet();
+    /**
+     * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+     */
+    io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.PlanetOrBuilder getPlanetOrBuilder();
   }
   /**
    * Protobuf type {@code io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Person}
@@ -80,6 +103,7 @@ public final class PersonOuterClass {
       familyName_ = "";
       dateOfBirth_ = "";
       dateOfDeath_ = "";
+      homePlanet_ = "";
     }
 
     @java.lang.Override
@@ -134,6 +158,25 @@ public final class PersonOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               dateOfDeath_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              homePlanet_ = s;
+              break;
+            }
+            case 58: {
+              io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.Builder subBuilder = null;
+              if (planet_ != null) {
+                subBuilder = planet_.toBuilder();
+              }
+              planet_ = input.readMessage(io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(planet_);
+                planet_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -304,6 +347,61 @@ public final class PersonOuterClass {
       }
     }
 
+    public static final int HOME_PLANET_FIELD_NUMBER = 6;
+    private volatile java.lang.Object homePlanet_;
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    public java.lang.String getHomePlanet() {
+      java.lang.Object ref = homePlanet_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        homePlanet_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string home_planet = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHomePlanetBytes() {
+      java.lang.Object ref = homePlanet_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        homePlanet_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PLANET_FIELD_NUMBER = 7;
+    private io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet planet_;
+    /**
+     * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+     */
+    public boolean hasPlanet() {
+      return planet_ != null;
+    }
+    /**
+     * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+     */
+    public io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet getPlanet() {
+      return planet_ == null ? io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.getDefaultInstance() : planet_;
+    }
+    /**
+     * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+     */
+    public io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.PlanetOrBuilder getPlanetOrBuilder() {
+      return getPlanet();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -331,6 +429,12 @@ public final class PersonOuterClass {
       if (!getDateOfDeathBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dateOfDeath_);
       }
+      if (!getHomePlanetBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, homePlanet_);
+      }
+      if (planet_ != null) {
+        output.writeMessage(7, getPlanet());
+      }
     }
 
     public int getSerializedSize() {
@@ -353,6 +457,13 @@ public final class PersonOuterClass {
       }
       if (!getDateOfDeathBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dateOfDeath_);
+      }
+      if (!getHomePlanetBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, homePlanet_);
+      }
+      if (planet_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getPlanet());
       }
       memoizedSize = size;
       return size;
@@ -380,6 +491,13 @@ public final class PersonOuterClass {
           .equals(other.getDateOfBirth());
       result = result && getDateOfDeath()
           .equals(other.getDateOfDeath());
+      result = result && getHomePlanet()
+          .equals(other.getHomePlanet());
+      result = result && (hasPlanet() == other.hasPlanet());
+      if (hasPlanet()) {
+        result = result && getPlanet()
+            .equals(other.getPlanet());
+      }
       return result;
     }
 
@@ -401,6 +519,12 @@ public final class PersonOuterClass {
       hash = (53 * hash) + getDateOfBirth().hashCode();
       hash = (37 * hash) + DATE_OF_DEATH_FIELD_NUMBER;
       hash = (53 * hash) + getDateOfDeath().hashCode();
+      hash = (37 * hash) + HOME_PLANET_FIELD_NUMBER;
+      hash = (53 * hash) + getHomePlanet().hashCode();
+      if (hasPlanet()) {
+        hash = (37 * hash) + PLANET_FIELD_NUMBER;
+        hash = (53 * hash) + getPlanet().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -529,6 +653,14 @@ public final class PersonOuterClass {
 
         dateOfDeath_ = "";
 
+        homePlanet_ = "";
+
+        if (planetBuilder_ == null) {
+          planet_ = null;
+        } else {
+          planet_ = null;
+          planetBuilder_ = null;
+        }
         return this;
       }
 
@@ -556,6 +688,12 @@ public final class PersonOuterClass {
         result.familyName_ = familyName_;
         result.dateOfBirth_ = dateOfBirth_;
         result.dateOfDeath_ = dateOfDeath_;
+        result.homePlanet_ = homePlanet_;
+        if (planetBuilder_ == null) {
+          result.planet_ = planet_;
+        } else {
+          result.planet_ = planetBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -615,6 +753,13 @@ public final class PersonOuterClass {
         if (!other.getDateOfDeath().isEmpty()) {
           dateOfDeath_ = other.dateOfDeath_;
           onChanged();
+        }
+        if (!other.getHomePlanet().isEmpty()) {
+          homePlanet_ = other.homePlanet_;
+          onChanged();
+        }
+        if (other.hasPlanet()) {
+          mergePlanet(other.getPlanet());
         }
         onChanged();
         return this;
@@ -943,6 +1088,192 @@ public final class PersonOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object homePlanet_ = "";
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public java.lang.String getHomePlanet() {
+        java.lang.Object ref = homePlanet_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          homePlanet_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHomePlanetBytes() {
+        java.lang.Object ref = homePlanet_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          homePlanet_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public Builder setHomePlanet(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        homePlanet_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public Builder clearHomePlanet() {
+        
+        homePlanet_ = getDefaultInstance().getHomePlanet();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string home_planet = 6;</code>
+       */
+      public Builder setHomePlanetBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        homePlanet_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet planet_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.Builder, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.PlanetOrBuilder> planetBuilder_;
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public boolean hasPlanet() {
+        return planetBuilder_ != null || planet_ != null;
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet getPlanet() {
+        if (planetBuilder_ == null) {
+          return planet_ == null ? io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.getDefaultInstance() : planet_;
+        } else {
+          return planetBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public Builder setPlanet(io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet value) {
+        if (planetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          planet_ = value;
+          onChanged();
+        } else {
+          planetBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public Builder setPlanet(
+          io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.Builder builderForValue) {
+        if (planetBuilder_ == null) {
+          planet_ = builderForValue.build();
+          onChanged();
+        } else {
+          planetBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public Builder mergePlanet(io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet value) {
+        if (planetBuilder_ == null) {
+          if (planet_ != null) {
+            planet_ =
+              io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.newBuilder(planet_).mergeFrom(value).buildPartial();
+          } else {
+            planet_ = value;
+          }
+          onChanged();
+        } else {
+          planetBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public Builder clearPlanet() {
+        if (planetBuilder_ == null) {
+          planet_ = null;
+          onChanged();
+        } else {
+          planet_ = null;
+          planetBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.Builder getPlanetBuilder() {
+        
+        onChanged();
+        return getPlanetFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      public io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.PlanetOrBuilder getPlanetOrBuilder() {
+        if (planetBuilder_ != null) {
+          return planetBuilder_.getMessageOrBuilder();
+        } else {
+          return planet_ == null ?
+              io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.getDefaultInstance() : planet_;
+        }
+      }
+      /**
+       * <code>optional .io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet planet = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.Builder, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.PlanetOrBuilder> 
+          getPlanetFieldBuilder() {
+        if (planetBuilder_ == null) {
+          planetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet.Builder, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.PlanetOrBuilder>(
+                  getPlanet(),
+                  getParentForChildren(),
+                  isClean());
+          planet_ = null;
+        }
+        return planetBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -1007,10 +1338,13 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\014person.proto\022=io.firkin.schemaregistry" +
-      ".versioning.simple.protobuf.evolution\"k\n" +
-      "\006Person\022\n\n\002id\030\001 \001(\003\022\022\n\ngiven_name\030\002 \001(\t\022" +
-      "\023\n\013family_name\030\003 \001(\t\022\025\n\rdate_of_birth\030\004 " +
-      "\001(\t\022\025\n\rdate_of_death\030\005 \001(\tb\006proto3"
+      ".versioning.simple.protobuf.evolution\032\014p" +
+      "lanet.proto\"\327\001\n\006Person\022\n\n\002id\030\001 \001(\003\022\022\n\ngi" +
+      "ven_name\030\002 \001(\t\022\023\n\013family_name\030\003 \001(\t\022\025\n\rd" +
+      "ate_of_birth\030\004 \001(\t\022\025\n\rdate_of_death\030\005 \001(" +
+      "\t\022\023\n\013home_planet\030\006 \001(\t\022U\n\006planet\030\007 \001(\0132E" +
+      ".io.firkin.schemaregistry.versioning.sim" +
+      "ple.protobuf.evolution.Planetb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1023,13 +1357,15 @@ public final class PersonOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.getDescriptor(),
         }, assigner);
     internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Person_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Person_descriptor,
-        new java.lang.String[] { "Id", "GivenName", "FamilyName", "DateOfBirth", "DateOfDeath", });
+        new java.lang.String[] { "Id", "GivenName", "FamilyName", "DateOfBirth", "DateOfDeath", "HomePlanet", "Planet", });
+    io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

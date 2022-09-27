@@ -8,8 +8,13 @@ import java.util.Map;
 public class TopicNameReferenceStrategy implements ReferenceSubjectNameStrategy {
   @Override
   public String subjectName(String refName, String topic, boolean isKey, ParsedSchema parsedSchema) {
-    System.out.println("refName is \""+refName+"\", topic is \""+topic+"\"");
-    return refName;
+    if (refName.endsWith(".proto")) {
+      String result = refName.substring(0, refName.length()-6);
+      System.out.println("refName was \""+refName+"\", topic is \""+topic+"\", returning \""+result+"\"");
+      return result;
+    } else {
+      return refName;
+    }
   }
 
   @Override

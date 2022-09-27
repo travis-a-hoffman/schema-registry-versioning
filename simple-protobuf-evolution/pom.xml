@@ -126,6 +126,7 @@
                     <outputDirectory>target/downloaded-sources/schemas</outputDirectory>
                     <subjectPatterns>
                         <pattern>person</pattern>
+                        <pattern>planet</pattern>
                     </subjectPatterns>
                     <schemaRegistryUrls>
                         <param>${schema.registry.host}</param>
@@ -133,15 +134,24 @@
                     <userInfoConfig>${schema.registry.creds}</userInfoConfig>
                     <subjects>
                         <person>src/main/protobuf/person.proto</person>
+                        <planet>src/main/protobuf/planet.proto</planet>
                     </subjects>
                     <schemaTypes>
                         <person>PROTOBUF</person>
+                        <planet>PROTOBUF</planet>
                     </schemaTypes>
                     <compatibilityLevels>
                         <person>BACKWARD_TRANSITIVE</person>
+                        <planet>BACKWARD_TRANSITIVE</planet>
                         <__GLOBAL>BACKWARD</__GLOBAL> <!-- Acts as the default -->
                     </compatibilityLevels>
-                    <references></references>
+                    <references>
+                        <src-main-protobuf-person>
+                            <name>planet</name>
+                            <subject>planet.proto</subject>
+                            <version>1</version>
+                        </src-main-protobuf-person>
+                    </references>
                 </configuration>
             </plugin>
 

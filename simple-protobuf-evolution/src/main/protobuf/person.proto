@@ -1,10 +1,14 @@
 syntax = "proto3";
 package io.firkin.schemaregistry.versioning.simple.protobuf.evolution;
 
+import "planet.proto";
+
 message Person {
   int64 id = 1;
   string given_name = 2;
   string family_name = 3;
   string date_of_birth = 4;
   string date_of_death = 5;
+  string home_planet = 6;
+  Planet planet = 7;
 }

@@ -82,6 +82,8 @@ public class PersonProducerTest {
         builder.setDateOfDeath("2019-12-16");
       }
 
+      builder.setPlanet(planets.get(r.nextInt(planets.size())));
+      builder.setHomePlanet(builder.getPlanet().getName());
       return builder.build();
     }
 
@@ -98,6 +100,44 @@ public class PersonProducerTest {
         "Nunb", "Frik", "Rebo", "Snoodles", "Nest", "Crumb", "Warrick", "Dameron", "Jinn", "Fortuna", "Kenobi", "Ren",
         "Imwe", "Palpatine"
     );
+
+    {
+      PlanetOuterClass.Planet.Builder builder = PlanetOuterClass.Planet.newBuilder();
+      int id = 0;
+      planets = List.of(
+          builder.setId(id++).setName("Alderaan").build(),
+          builder.setId(id++).setName("Bespin").build(),
+          builder.setId(id++).setName("Corellia").build(),
+          builder.setId(id++).setName("Coruscant").build(),
+          builder.setId(id++).setName("Dagobah").build(),
+          builder.setId(id++).setName("Dantooine").build(),
+          builder.setId(id++).setName("Dathomir").build(),
+          builder.setId(id++).setName("Eadu").build(),
+          builder.setId(id++).setName("Endor").build(),
+          builder.setId(id++).setName("Exegol").build(),
+          builder.setId(id++).setName("Geonosis").build(),
+          builder.setId(id++).setName("Hoth").build(),
+          builder.setId(id++).setName("Jakku").build(),
+          builder.setId(id++).setName("Jedha").build(),
+          builder.setId(id++).setName("Kashyyyk").build(),
+          builder.setId(id++).setName("Kamino").build(),
+          builder.setId(id++).setName("Kessel").build(),
+          builder.setId(id++).setName("Kuat").build(),
+          builder.setId(id++).setName("Malastare").build(),
+          builder.setId(id++).setName("Mandalore").build(),
+          builder.setId(id++).setName("Mon Cala").build(),
+          builder.setId(id++).setName("Mustafar").build(),
+          builder.setId(id++).setName("Naboo").build(),
+          builder.setId(id++).setName("Ord Mantell").build(),
+          builder.setId(id++).setName("Rodia").build(),
+          builder.setId(id++).setName("Tatooine").build(),
+          builder.setId(id++).setName("Utapau").build(),
+          builder.setId(id++).setName("Yavin").build()
+      );
+    }
+
+
+    private List<PlanetOuterClass.Planet> planets;
   }
 
 }
