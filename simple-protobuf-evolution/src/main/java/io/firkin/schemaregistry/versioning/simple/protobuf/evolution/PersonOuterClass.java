@@ -21,16 +21,8 @@ public final class PersonOuterClass {
     /**
      * <code>optional int64 id = 1;</code>
      */
-    boolean hasId();
-    /**
-     * <code>optional int64 id = 1;</code>
-     */
     long getId();
 
-    /**
-     * <code>optional string given_name = 2;</code>
-     */
-    boolean hasGivenName();
     /**
      * <code>optional string given_name = 2;</code>
      */
@@ -44,10 +36,6 @@ public final class PersonOuterClass {
     /**
      * <code>optional string family_name = 3;</code>
      */
-    boolean hasFamilyName();
-    /**
-     * <code>optional string family_name = 3;</code>
-     */
     java.lang.String getFamilyName();
     /**
      * <code>optional string family_name = 3;</code>
@@ -58,10 +46,6 @@ public final class PersonOuterClass {
     /**
      * <code>optional string date_of_birth = 4;</code>
      */
-    boolean hasDateOfBirth();
-    /**
-     * <code>optional string date_of_birth = 4;</code>
-     */
     java.lang.String getDateOfBirth();
     /**
      * <code>optional string date_of_birth = 4;</code>
@@ -69,10 +53,6 @@ public final class PersonOuterClass {
     com.google.protobuf.ByteString
         getDateOfBirthBytes();
 
-    /**
-     * <code>optional string date_of_death = 5;</code>
-     */
-    boolean hasDateOfDeath();
     /**
      * <code>optional string date_of_death = 5;</code>
      */
@@ -105,7 +85,7 @@ public final class PersonOuterClass {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Person(
         com.google.protobuf.CodedInputStream input,
@@ -113,8 +93,6 @@ public final class PersonOuterClass {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -124,39 +102,38 @@ public final class PersonOuterClass {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
+
               id_ = input.readInt64();
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              givenName_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              givenName_ = s;
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
-              familyName_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              familyName_ = s;
               break;
             }
             case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              dateOfBirth_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dateOfBirth_ = s;
               break;
             }
             case 42: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000010;
-              dateOfDeath_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dateOfDeath_ = s;
               break;
             }
           }
@@ -167,7 +144,6 @@ public final class PersonOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -183,15 +159,8 @@ public final class PersonOuterClass {
               io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person.class, io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private long id_;
-    /**
-     * <code>optional int64 id = 1;</code>
-     */
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
     /**
      * <code>optional int64 id = 1;</code>
      */
@@ -204,12 +173,6 @@ public final class PersonOuterClass {
     /**
      * <code>optional string given_name = 2;</code>
      */
-    public boolean hasGivenName() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional string given_name = 2;</code>
-     */
     public java.lang.String getGivenName() {
       java.lang.Object ref = givenName_;
       if (ref instanceof java.lang.String) {
@@ -218,9 +181,7 @@ public final class PersonOuterClass {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          givenName_ = s;
-        }
+        givenName_ = s;
         return s;
       }
     }
@@ -246,12 +207,6 @@ public final class PersonOuterClass {
     /**
      * <code>optional string family_name = 3;</code>
      */
-    public boolean hasFamilyName() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional string family_name = 3;</code>
-     */
     public java.lang.String getFamilyName() {
       java.lang.Object ref = familyName_;
       if (ref instanceof java.lang.String) {
@@ -260,9 +215,7 @@ public final class PersonOuterClass {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          familyName_ = s;
-        }
+        familyName_ = s;
         return s;
       }
     }
@@ -288,12 +241,6 @@ public final class PersonOuterClass {
     /**
      * <code>optional string date_of_birth = 4;</code>
      */
-    public boolean hasDateOfBirth() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional string date_of_birth = 4;</code>
-     */
     public java.lang.String getDateOfBirth() {
       java.lang.Object ref = dateOfBirth_;
       if (ref instanceof java.lang.String) {
@@ -302,9 +249,7 @@ public final class PersonOuterClass {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          dateOfBirth_ = s;
-        }
+        dateOfBirth_ = s;
         return s;
       }
     }
@@ -330,12 +275,6 @@ public final class PersonOuterClass {
     /**
      * <code>optional string date_of_death = 5;</code>
      */
-    public boolean hasDateOfDeath() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional string date_of_death = 5;</code>
-     */
     public java.lang.String getDateOfDeath() {
       java.lang.Object ref = dateOfDeath_;
       if (ref instanceof java.lang.String) {
@@ -344,9 +283,7 @@ public final class PersonOuterClass {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          dateOfDeath_ = s;
-        }
+        dateOfDeath_ = s;
         return s;
       }
     }
@@ -379,22 +316,21 @@ public final class PersonOuterClass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0L) {
         output.writeInt64(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (!getGivenNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, givenName_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!getFamilyNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, familyName_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (!getDateOfBirthBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, dateOfBirth_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (!getDateOfDeathBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dateOfDeath_);
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -402,23 +338,22 @@ public final class PersonOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (!getGivenNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, givenName_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!getFamilyNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, familyName_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (!getDateOfBirthBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, dateOfBirth_);
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (!getDateOfDeathBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dateOfDeath_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -435,32 +370,16 @@ public final class PersonOuterClass {
       io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person other = (io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person) obj;
 
       boolean result = true;
-      result = result && (hasId() == other.hasId());
-      if (hasId()) {
-        result = result && (getId()
-            == other.getId());
-      }
-      result = result && (hasGivenName() == other.hasGivenName());
-      if (hasGivenName()) {
-        result = result && getGivenName()
-            .equals(other.getGivenName());
-      }
-      result = result && (hasFamilyName() == other.hasFamilyName());
-      if (hasFamilyName()) {
-        result = result && getFamilyName()
-            .equals(other.getFamilyName());
-      }
-      result = result && (hasDateOfBirth() == other.hasDateOfBirth());
-      if (hasDateOfBirth()) {
-        result = result && getDateOfBirth()
-            .equals(other.getDateOfBirth());
-      }
-      result = result && (hasDateOfDeath() == other.hasDateOfDeath());
-      if (hasDateOfDeath()) {
-        result = result && getDateOfDeath()
-            .equals(other.getDateOfDeath());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && (getId()
+          == other.getId());
+      result = result && getGivenName()
+          .equals(other.getGivenName());
+      result = result && getFamilyName()
+          .equals(other.getFamilyName());
+      result = result && getDateOfBirth()
+          .equals(other.getDateOfBirth());
+      result = result && getDateOfDeath()
+          .equals(other.getDateOfDeath());
       return result;
     }
 
@@ -471,27 +390,17 @@ public final class PersonOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            getId());
-      }
-      if (hasGivenName()) {
-        hash = (37 * hash) + GIVEN_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getGivenName().hashCode();
-      }
-      if (hasFamilyName()) {
-        hash = (37 * hash) + FAMILY_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getFamilyName().hashCode();
-      }
-      if (hasDateOfBirth()) {
-        hash = (37 * hash) + DATE_OF_BIRTH_FIELD_NUMBER;
-        hash = (53 * hash) + getDateOfBirth().hashCode();
-      }
-      if (hasDateOfDeath()) {
-        hash = (37 * hash) + DATE_OF_DEATH_FIELD_NUMBER;
-        hash = (53 * hash) + getDateOfDeath().hashCode();
-      }
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
+      hash = (37 * hash) + GIVEN_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getGivenName().hashCode();
+      hash = (37 * hash) + FAMILY_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFamilyName().hashCode();
+      hash = (37 * hash) + DATE_OF_BIRTH_FIELD_NUMBER;
+      hash = (53 * hash) + getDateOfBirth().hashCode();
+      hash = (37 * hash) + DATE_OF_DEATH_FIELD_NUMBER;
+      hash = (53 * hash) + getDateOfDeath().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -611,15 +520,15 @@ public final class PersonOuterClass {
       public Builder clear() {
         super.clear();
         id_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         givenName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         familyName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
+
         dateOfBirth_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
+
         dateOfDeath_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
+
         return this;
       }
 
@@ -642,29 +551,11 @@ public final class PersonOuterClass {
 
       public io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person buildPartial() {
         io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person result = new io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.givenName_ = givenName_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.familyName_ = familyName_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
         result.dateOfBirth_ = dateOfBirth_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
         result.dateOfDeath_ = dateOfDeath_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -706,30 +597,25 @@ public final class PersonOuterClass {
 
       public Builder mergeFrom(io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person other) {
         if (other == io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PersonOuterClass.Person.getDefaultInstance()) return this;
-        if (other.hasId()) {
+        if (other.getId() != 0L) {
           setId(other.getId());
         }
-        if (other.hasGivenName()) {
-          bitField0_ |= 0x00000002;
+        if (!other.getGivenName().isEmpty()) {
           givenName_ = other.givenName_;
           onChanged();
         }
-        if (other.hasFamilyName()) {
-          bitField0_ |= 0x00000004;
+        if (!other.getFamilyName().isEmpty()) {
           familyName_ = other.familyName_;
           onChanged();
         }
-        if (other.hasDateOfBirth()) {
-          bitField0_ |= 0x00000008;
+        if (!other.getDateOfBirth().isEmpty()) {
           dateOfBirth_ = other.dateOfBirth_;
           onChanged();
         }
-        if (other.hasDateOfDeath()) {
-          bitField0_ |= 0x00000010;
+        if (!other.getDateOfDeath().isEmpty()) {
           dateOfDeath_ = other.dateOfDeath_;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -755,15 +641,8 @@ public final class PersonOuterClass {
         }
         return this;
       }
-      private int bitField0_;
 
       private long id_ ;
-      /**
-       * <code>optional int64 id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
       /**
        * <code>optional int64 id = 1;</code>
        */
@@ -774,7 +653,7 @@ public final class PersonOuterClass {
        * <code>optional int64 id = 1;</code>
        */
       public Builder setId(long value) {
-        bitField0_ |= 0x00000001;
+        
         id_ = value;
         onChanged();
         return this;
@@ -783,7 +662,7 @@ public final class PersonOuterClass {
        * <code>optional int64 id = 1;</code>
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         id_ = 0L;
         onChanged();
         return this;
@@ -793,21 +672,13 @@ public final class PersonOuterClass {
       /**
        * <code>optional string given_name = 2;</code>
        */
-      public boolean hasGivenName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional string given_name = 2;</code>
-       */
       public java.lang.String getGivenName() {
         java.lang.Object ref = givenName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            givenName_ = s;
-          }
+          givenName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -837,7 +708,7 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  
         givenName_ = value;
         onChanged();
         return this;
@@ -846,7 +717,7 @@ public final class PersonOuterClass {
        * <code>optional string given_name = 2;</code>
        */
       public Builder clearGivenName() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         givenName_ = getDefaultInstance().getGivenName();
         onChanged();
         return this;
@@ -859,7 +730,8 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  checkByteStringIsUtf8(value);
+        
         givenName_ = value;
         onChanged();
         return this;
@@ -869,21 +741,13 @@ public final class PersonOuterClass {
       /**
        * <code>optional string family_name = 3;</code>
        */
-      public boolean hasFamilyName() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional string family_name = 3;</code>
-       */
       public java.lang.String getFamilyName() {
         java.lang.Object ref = familyName_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            familyName_ = s;
-          }
+          familyName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -913,7 +777,7 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  
         familyName_ = value;
         onChanged();
         return this;
@@ -922,7 +786,7 @@ public final class PersonOuterClass {
        * <code>optional string family_name = 3;</code>
        */
       public Builder clearFamilyName() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         familyName_ = getDefaultInstance().getFamilyName();
         onChanged();
         return this;
@@ -935,7 +799,8 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  checkByteStringIsUtf8(value);
+        
         familyName_ = value;
         onChanged();
         return this;
@@ -945,21 +810,13 @@ public final class PersonOuterClass {
       /**
        * <code>optional string date_of_birth = 4;</code>
        */
-      public boolean hasDateOfBirth() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional string date_of_birth = 4;</code>
-       */
       public java.lang.String getDateOfBirth() {
         java.lang.Object ref = dateOfBirth_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            dateOfBirth_ = s;
-          }
+          dateOfBirth_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -989,7 +846,7 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  
         dateOfBirth_ = value;
         onChanged();
         return this;
@@ -998,7 +855,7 @@ public final class PersonOuterClass {
        * <code>optional string date_of_birth = 4;</code>
        */
       public Builder clearDateOfBirth() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         dateOfBirth_ = getDefaultInstance().getDateOfBirth();
         onChanged();
         return this;
@@ -1011,7 +868,8 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  checkByteStringIsUtf8(value);
+        
         dateOfBirth_ = value;
         onChanged();
         return this;
@@ -1021,21 +879,13 @@ public final class PersonOuterClass {
       /**
        * <code>optional string date_of_death = 5;</code>
        */
-      public boolean hasDateOfDeath() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional string date_of_death = 5;</code>
-       */
       public java.lang.String getDateOfDeath() {
         java.lang.Object ref = dateOfDeath_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            dateOfDeath_ = s;
-          }
+          dateOfDeath_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1065,7 +915,7 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  
         dateOfDeath_ = value;
         onChanged();
         return this;
@@ -1074,7 +924,7 @@ public final class PersonOuterClass {
        * <code>optional string date_of_death = 5;</code>
        */
       public Builder clearDateOfDeath() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         dateOfDeath_ = getDefaultInstance().getDateOfDeath();
         onChanged();
         return this;
@@ -1087,19 +937,20 @@ public final class PersonOuterClass {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000010;
+  checkByteStringIsUtf8(value);
+        
         dateOfDeath_ = value;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
@@ -1116,7 +967,7 @@ public final class PersonOuterClass {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Person>
+    private static final com.google.protobuf.Parser<Person>
         PARSER = new com.google.protobuf.AbstractParser<Person>() {
       public Person parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1159,7 +1010,7 @@ public final class PersonOuterClass {
       ".versioning.simple.protobuf.evolution\"k\n" +
       "\006Person\022\n\n\002id\030\001 \001(\003\022\022\n\ngiven_name\030\002 \001(\t\022" +
       "\023\n\013family_name\030\003 \001(\t\022\025\n\rdate_of_birth\030\004 " +
-      "\001(\t\022\025\n\rdate_of_death\030\005 \001(\t"
+      "\001(\t\022\025\n\rdate_of_death\030\005 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

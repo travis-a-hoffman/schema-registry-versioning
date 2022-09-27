@@ -58,6 +58,7 @@ public class PersonTest {
     }
 
     Properties props = new Properties();
+    String PERSON_TOPIC = ENVS.get("FIRKIN_TOPIC");
 
     // Kafka Client configurations
     props.put("security.protocol","SASL_SSL");
@@ -68,6 +69,10 @@ public class PersonTest {
     props.put("schema.registry.url", SCHEMA_REGISTRY_URL);
     props.put("basic.auth.credentials.source","USER_INFO");
     props.put("basic.auth.user.info",SCHEMA_REGISTRY_USERNAME+":"+SCHEMA_REGISTRY_PASSWORD);
+
+    // Producer/Consumer configurations
+    props.put("person.topic", PERSON_TOPIC != null? PERSON_TOPIC: "person");
+    props.put("reference.subject.name.strategy", TopicNameReferenceStrategy.class.getName());
 
     // Producer-specific configurations
     props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KAFKA_BOOTSTRAP_URL);
@@ -81,9 +86,9 @@ public class PersonTest {
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer");
 
     // Consumer-group configurations
-    props.put(ConsumerConfig.GROUP_ID_CONFIG, "group2");
-    props.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "group2.1");
-    props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // or latest
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "group1-"+System.currentTimeMillis());
+//    props.put(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "group1.1");
+    props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // or latest, or none, or "exception"
 
     return props;
   }

@@ -1,8 +1,10 @@
 package io.firkin.schemaregistry.versioning.simple.protobuf.evolution;
 
+import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.apache.kafka.common.errors.SerializationException;
 
 import java.util.*;
 import java.util.concurrent.ExecutionException;
@@ -11,10 +13,12 @@ public class PersonProducerTest {
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
     Properties kafkaProps = PersonTest.loadProperties(); // Throws NPE if missing ENV variables
-    String topic = System.getProperty("FIRKIN_TOPIC", "person");
+    String topic = kafkaProps.getProperty("person.topic");
 
     PersonKeyGenerator keyGenerator = new PersonKeyGenerator();
     PersonGenerator personGenerator = new PersonGenerator();
+
+    System.out.println("reference.subject.name.strategy=\""+kafkaProps.getProperty("reference.subject.name.strategy")+"\"");
 
     int nToProduce = 0;
     if (args.length == 0) {
@@ -45,6 +49,8 @@ public class PersonProducerTest {
         // Exit via Control-C Interrupt...
       } while (true);
 
+    } catch (SerializationException e) {
+      e.printStackTrace();
     } finally {
       personKafkaProducer.close();
     }
