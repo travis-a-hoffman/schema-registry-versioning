@@ -32,6 +32,16 @@ public final class PlanetOuterClass {
      */
     com.google.protobuf.ByteString
         getNameBytes();
+
+    /**
+     * <code>optional string type = 3;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>optional string type = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
   }
   /**
    * Protobuf type {@code io.firkin.schemaregistry.versioning.simple.protobuf.evolution.Planet}
@@ -47,6 +57,7 @@ public final class PlanetOuterClass {
     private Planet() {
       id_ = 0L;
       name_ = "";
+      type_ = "";
     }
 
     @java.lang.Override
@@ -83,6 +94,12 @@ public final class PlanetOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               name_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              type_ = s;
               break;
             }
           }
@@ -151,6 +168,40 @@ public final class PlanetOuterClass {
       }
     }
 
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object type_;
+    /**
+     * <code>optional string type = 3;</code>
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        type_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string type = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -169,6 +220,9 @@ public final class PlanetOuterClass {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
+      if (!getTypeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
+      }
     }
 
     public int getSerializedSize() {
@@ -182,6 +236,9 @@ public final class PlanetOuterClass {
       }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+      }
+      if (!getTypeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
       }
       memoizedSize = size;
       return size;
@@ -203,6 +260,8 @@ public final class PlanetOuterClass {
           == other.getId());
       result = result && getName()
           .equals(other.getName());
+      result = result && getType()
+          .equals(other.getType());
       return result;
     }
 
@@ -218,6 +277,8 @@ public final class PlanetOuterClass {
           getId());
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -340,6 +401,8 @@ public final class PlanetOuterClass {
 
         name_ = "";
 
+        type_ = "";
+
         return this;
       }
 
@@ -364,6 +427,7 @@ public final class PlanetOuterClass {
         io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet result = new io.firkin.schemaregistry.versioning.simple.protobuf.evolution.PlanetOuterClass.Planet(this);
         result.id_ = id_;
         result.name_ = name_;
+        result.type_ = type_;
         onBuilt();
         return result;
       }
@@ -410,6 +474,10 @@ public final class PlanetOuterClass {
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getType().isEmpty()) {
+          type_ = other.type_;
           onChanged();
         }
         onChanged();
@@ -532,6 +600,75 @@ public final class PlanetOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object type_ = "";
+      /**
+       * <code>optional string type = 3;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          type_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string type = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string type = 3;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string type = 3;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string type = 3;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        type_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -596,9 +733,9 @@ public final class PlanetOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\014planet.proto\022=io.firkin.schemaregistry" +
-      ".versioning.simple.protobuf.evolution\"\"\n" +
-      "\006Planet\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\tb\006proto" +
-      "3"
+      ".versioning.simple.protobuf.evolution\"0\n" +
+      "\006Planet\022\n\n\002id\030\001 \001(\003\022\014\n\004name\030\002 \001(\t\022\014\n\004typ" +
+      "e\030\003 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -617,7 +754,7 @@ public final class PlanetOuterClass {
     internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Planet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_firkin_schemaregistry_versioning_simple_protobuf_evolution_Planet_descriptor,
-        new java.lang.String[] { "Id", "Name", });
+        new java.lang.String[] { "Id", "Name", "Type", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
