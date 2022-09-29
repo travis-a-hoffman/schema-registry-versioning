@@ -125,32 +125,34 @@
                     <normalizeSchemas>false</normalizeSchemas>
                     <outputDirectory>target/downloaded-sources/schemas</outputDirectory>
                     <subjectPatterns>
-                        <pattern>person</pattern>
-                        <pattern>planet</pattern>
+                        <pattern>person.proto</pattern>
+                        <pattern>planet.proto</pattern>
                     </subjectPatterns>
                     <schemaRegistryUrls>
                         <param>${schema.registry.host}</param>
                     </schemaRegistryUrls>
                     <userInfoConfig>${schema.registry.creds}</userInfoConfig>
                     <subjects>
-                        <person>src/main/protobuf/person.proto</person>
-                        <planet>src/main/protobuf/planet.proto</planet>
+                        <planet.proto>src/main/protobuf/planet.proto</planet.proto>
+                        <person.proto>src/main/protobuf/person.proto</person.proto>
                     </subjects>
                     <schemaTypes>
-                        <person>PROTOBUF</person>
-                        <planet>PROTOBUF</planet>
+                        <person.proto>PROTOBUF</person.proto>
+                        <planet.proto>PROTOBUF</planet.proto>
                     </schemaTypes>
                     <compatibilityLevels>
-                        <person>BACKWARD_TRANSITIVE</person>
-                        <planet>BACKWARD_TRANSITIVE</planet>
+                        <person.proto>BACKWARD_TRANSITIVE</person.proto>
+                        <planet.proto>BACKWARD_TRANSITIVE</planet.proto>
                         <__GLOBAL>BACKWARD</__GLOBAL> <!-- Acts as the default -->
                     </compatibilityLevels>
                     <references>
-                        <src-main-protobuf-person>
-                            <name>planet</name>
-                            <subject>planet.proto</subject>
-                            <version>1</version>
-                        </src-main-protobuf-person>
+                        <person.proto>
+                            <reference>
+                                <name>planet.proto</name>
+                                <subject>planet.proto</subject>
+                                <version>1</version>
+                            </reference>
+                        </person.proto>
                     </references>
                 </configuration>
             </plugin>

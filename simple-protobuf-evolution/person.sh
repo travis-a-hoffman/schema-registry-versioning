@@ -89,9 +89,9 @@ FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-protobuf-types/$CFLT/kafk
 WIRE=4.3.0
 # Needs to be before the wire schema-jvm jars
 FIRKIN_CLASSPATH+=:~/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.0/kotlin-stdlib-1.6.0.jar
-FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-schema/$WIRE/wire-schema-$WIRE.jar
+#FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-schema/$WIRE/wire-schema-$WIRE.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-schema-jvm/$WIRE/wire-schema-jvm-$WIRE.jar
-FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-runtime/$WIRE/wire-runtime-$WIRE.jar
+#FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-runtime/$WIRE/wire-runtime-$WIRE.jar
 FIRKIN_CLASSPATH+=:~/.m2/repository/com/squareup/wire/wire-runtime-jvm/$WIRE/wire-runtime-jvm-$WIRE.jar
 
 FIRKIN_CLASSPATH+=:~/.m2/repository/io/confluent/kafka-schema-registry-client/$CFLT/kafka-schema-registry-client-$CFLT.jar
