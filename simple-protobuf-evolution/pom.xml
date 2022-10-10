@@ -150,7 +150,6 @@
                             <reference>
                                 <name>planet.proto</name>
                                 <subject>planet.proto</subject>
-                                <version>2</version>
                             </reference>
                         </person.proto>
                     </references>
